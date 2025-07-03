@@ -89,7 +89,7 @@ texto === textoInvertido ? console.log("é palindromo") : console.log("não é p
 
 // aula 10. exercicio
 // contagem de numeros
-const numeroFinal = 5;
+let numeroFinal = 5;
 for(let i=1; i<=numeroFinal; i++){
     console.log(i);
 }
@@ -100,3 +100,87 @@ for(let i=10; i>=0; i--){
     console.log(i);
 }
 console.log("Lançar!");
+
+
+// aula 12
+numeroFinal = 10;
+for(let i=1; i<=10; i++){
+    if(i%2 === 0){
+        console.log(i);
+    }
+}
+
+
+// aula 13 mostrar cada caractere da senha
+let senha = "seguranç@2025";
+for(let i=0; i<senha.length; i++){
+    console.log(senha[i]);
+}
+
+
+// aula 14 - mostra nomes ate encontrar 'fim'
+const entradas = ["Ana", "Bruno", "Carla", "Fim", "Daniel"];
+i = 0;
+while(entradas[i] !== "Fim"){
+    console.log(entradas[i]);
+    i++;
+}
+
+// aula 15 - Encerrar ao encontrar o num 10
+let numeroProibido = 10;
+for(let i=0; i<20; i++){
+    if(i === 10){
+        console.log("Número proibido encontrado!");
+        break;
+    }
+    console.log(i);
+}
+
+// aula 16 - economizando +1 real a cada dia
+let acum = 0;
+for(let i=1; i<=10; i++){
+    acum += i;
+    console.log(`Dia ${i}: R$${acum}`);
+}
+
+// aula 17 - aquecendo. Pode fazer com do-while
+const tempoMinimo = 5;
+const temperaturaIdealEm = 3;
+for(i=0; i<=tempoMinimo; ++i){
+    if(i === temperaturaIdealEm){
+        console.log(`Aquecendo... segundo ${i} - Temperatura ideal atingida`);
+    }else{
+        console.log(`Aquecendo... segundo ${i}`);
+    }
+}
+console.log(`Tempo total de aquecimento: ${i-1} segundos`);
+
+
+// aula 18 - processando caixas
+const caixas = [12, -1, 8, 0, -5, 3, 7, 14];
+for(let i=0, validas=0; i<caixas.length && validas<5; i++){
+    if(caixas[i] < 0){
+        console.log("Caixa danificada, ignorada.");
+    }else{
+        console.log(`Caixa processada: ${caixas[i]}`);
+        validas++;
+    }
+}
+console.log("Limite de caixas processadas atingido")
+
+// aula 19 - senhas
+tentativas = ["1234", "admin", 'ovo', 'abc', 'coisa', "secreto"];
+const senhaCorreta = "secreto";
+const tentativasBloqueio = 3;
+for(i=0; i<tentativas.length; i++){
+    if(tentativas[i] !== senhaCorreta){
+        console.log(`Tentativa ${i+1} inválida.`);
+    }else{
+        console.log('Acesso Permitido!');
+        break;
+    }
+    if(i === tentativasBloqueio-1){
+        console.log("Acesso bloqueado. numero máximo de tentativas atingido");
+        break;
+    }
+}
