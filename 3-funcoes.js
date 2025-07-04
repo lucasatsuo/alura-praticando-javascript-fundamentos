@@ -291,3 +291,8 @@ function contagemRegressiva(numero){
 }
 
 contagemRegressiva(5);
+
+// Vimos as diferenças de funções por Declaração e Expressão
+// quando define uma função por expressão, ela só passa a valer no espaço no momento 
+// que é foi interpretada. Ao invés da declaração que as linhas são içadas para o 
+// início do código.
