@@ -126,3 +126,124 @@ console.log(result);
 
 result = cpfs.map(cpf => typeof cpf === 'string' ? cpf : String(cpf));
 console.log(result);
+
+
+// exercicio 12 - acessando e modificando elementos de array
+// exibir o 2o e modificar o ultimo
+const listaDeCompras = ['arroz', 'feijão', 'macarrão', 'tomate'];
+console.log(`Segundo elemento da lista de compras ${listaDeCompras[1]}`);
+const listaModificada = listaDeCompras.map(item => 
+    item === 'tomate' ? 'beterraba' : item
+)
+// se criar a arrow function com {} TEM QUE TER return
+// const listaModificada = listaDeCompras.map(item => {
+//     return item === 'tomate' ? 'beterraba' : item
+//     }
+// )
+console.log(listaModificada);
+
+
+// Exercicio 13 - Percorrendo listas com for
+const despesas = [120, 80, 45.5, 200, 60];
+let total = 0;
+for (let i = 0; i < despesas.length; i++) {
+    total += despesas[i];
+}
+console.log(`Total de despesas: R$ ${total}`);
+
+
+// Exercicio 14 - for..of
+// exibir o nome de cada um individualmente
+const estudantes = ['Carla', 'João', 'Marina', 'Lucas', 'Beatriz'];
+for(let name of estudantes){
+    console.log(`Estudante: ${name}`);
+}
+
+
+// exercicio 15 - forEach() exibir notificações
+const mensagens = ['Pedido confirmado', 'Pagamento aprovado', 'Produto enviado'];
+mensagens.forEach(elem => {
+    console.log(`Notificação: ${elem}`);
+});
+
+
+// exercicio 16 - adicionando e removendo itens na lista
+const tarefas = ['Estudar', 'Lavar roupa', 'Fazer compras'];
+tarefas.push('Pagar boletos');
+console.log(`Lista apos adicionar: ${tarefas}`);
+tarefas.pop();
+console.log(`Lista apos remover a ultima: ${tarefas}`);
+
+
+// exercicio 17 - copia de um array
+const pedidos = ['camiseta', 'calça', 'tênis'];
+const copiaPedido = pedidos.slice();
+copiaPedido.push('boné');
+console.log(`Array original: ${pedidos}`);
+console.log(`Array copiado: ${copiaPedido}`);
+
+
+// exercicio 18 - buscando item na lista
+const livros = ['Dom Casmurro', 'O Cortiço', 'Capitães da Areia', 'Iracema'];
+const livroProcurado = 'O Cortiço';
+
+if(livros.indexOf(livroProcurado) !== -1){
+    console.log(`O livro: ${livroProcurado} está disponível`);
+}else{
+    console.log(`O livro: ${livroProcurado} não foi encontrado`);
+}
+
+
+// exercicio 14 - aplicar 10% desconto com map()
+const precos = [100, 80, 50, 120];
+const precosDescontados = precos.map(preco => preco*0.9)
+console.log(`Preços com desconto: ${precosDescontados}`);
+
+
+// exercicios 15 - filter apenas maiores de 18 anos
+const participantes = [
+  { nome: 'Ana', idade: 17 },
+  { nome: 'Bruno', idade: 22 },
+  { nome: 'Carla', idade: 19 },
+  { nome: 'Daniel', idade: 15 },
+  { nome: 'Eduarda', idade: 25 }
+];
+
+const nomesLiberados = participantes.filter( p => 
+    p['idade'] >= 18
+).map(p => p.nome );
+
+console.log(nomesLiberados);
+
+
+// exercicio 21 Painel de controle de produtos
+
+const produtos = [
+  { nome: 'Notebook', preco: 2500, quantidadeVendida: 75 },
+  { nome: 'Mouse'.padEnd(8), preco: 100, quantidadeVendida: 180 },
+  { nome: 'Teclado'.padEnd(8), preco: 150, quantidadeVendida: 125 },
+  { nome: 'Monitor'.padEnd(8), preco: 900, quantidadeVendida: 95 }
+];
+
+// exibe a tabela completa
+for(let p of produtos){
+    console.log(`Produto: ${p.nome} | Preço: ${p.preco} | Quantidade vendida: ${p.quantidadeVendida}`);
+}
+
+// filtra mais vendidos >100
+let produtosMaisVendidos = produtos.filter(p => p.quantidadeVendida > 100)
+
+console.log("Produtos com alto volume de vendas (> 100 unidades):");
+for(let p of produtosMaisVendidos){
+    console.log(p.nome);
+}
+
+// calcula total de vendas
+let totalVendas = produtos.map(p => {
+    let valorVendas = p.quantidadeVendida * p.preco;
+    return {nome: p.nome, total: valorVendas}
+})
+console.log("Total de vendas por produto:");
+totalVendas.forEach(p => {
+    console.log(`${p.nome}: R$ ${p.total}`);
+});
